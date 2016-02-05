@@ -13,6 +13,9 @@ If you have a `GOPATH` you can just:
 
     go install github.com/zacharyvoase/jpipe
 
+Pre-built binaries are also available from the [releases page][].
+
+  [releases page]: https://github.com/zacharyvoase/jpipe/releases
 
 ## Example
 
