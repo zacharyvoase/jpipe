@@ -51,6 +51,11 @@ func unwrap(keyPath []string, obj interface{}, output chan jsonNode) {
 	case map[string]interface{}:
 		output <- jsonNode{keyPath, "{}"}
 		for k, v := range obj {
+			if strings.Contains(k, *keySep) {
+				log.Println(fmt.Sprintf(
+					"key \"%s\" contains key separator \"%s\"", k, *keySep))
+				os.Exit(1)
+			}
 			unwrap(extendKeyPath(keyPath, k), v, output)
 		}
 	case []interface{}:
